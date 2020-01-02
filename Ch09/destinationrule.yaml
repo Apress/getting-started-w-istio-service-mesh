@@ -1,0 +1,10 @@
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "DestinationRule"
+metadata:
+  name: "wb-rule"
+  namespace: "default"
+spec:
+  host: webservice
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL

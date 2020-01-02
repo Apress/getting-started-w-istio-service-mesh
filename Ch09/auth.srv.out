@@ -1,0 +1,40 @@
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl -v http://10.152.183.230
+* Rebuilt URL to: http://10.152.183.230/
+*   Trying 10.152.183.230...
+* TCP_NODELAY set
+* Connected to 10.152.183.230 (10.152.183.230) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.230
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+* Empty reply from server
+* Connection #0 to host 10.152.183.230 left intact
+curl: (52) Empty reply from server
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl -v http://10.152.183.146
+* Rebuilt URL to: http://10.152.183.146/
+*   Trying 10.152.183.146...
+* TCP_NODELAY set
+* Connected to 10.152.183.146 (10.152.183.146) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.146
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+< HTTP/1.1 200
+< Set-Cookie: JSESSIONID=9AE9463393894A1865B34200E7AE2390; Path=/; HttpOnly
+< Content-Type: text/html;charset=UTF-8
+< Content-Language: en-US
+< Content-Length: 113
+< Date: Tue, 03 Sep 2019 16:57:33 GMT
+<
+<html>
+
+	<body>
+		This is content from remote service
+		<br>
+		<pre>
+		  ERROR RECEIVED
+		</pre>
+	</body>
+* Connection #0 to host 10.152.183.146 left intact

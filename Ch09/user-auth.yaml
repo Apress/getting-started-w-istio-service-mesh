@@ -1,0 +1,17 @@
+apiVersion: "authentication.istio.io/v1alpha1"
+kind: "Policy"
+metadata:
+  name: "user-auth"
+spec:
+  targets:
+  - name: webservice
+    ports:
+    - number : 80
+  origins:
+  - jwt:
+      issuer: http://172.18.0.1:8181/auth/realms/k8s-dev
+      jwksUri: http://172.18.0.1:8181/auth/realms/k8s-dev/protocol/openid-connect/certs
+      trigger_rules:
+      - excluded_paths:
+        - exact: /health
+  principalBinding: USE_ORIGIN

@@ -1,0 +1,29 @@
+---
+apiVersion: config.istio.io/v1alpha2
+kind: handler
+metadata:
+  name: whitelist
+spec:
+  compiledAdapter: listchecker
+  params:
+    overrides: ["frontend"]
+    blacklist: false
+---
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: appversion
+spec:
+  compiledTemplate: listentry
+  params:
+    value: source.labels["app"]
+---
+apiVersion: config.istio.io/v1alpha2
+kind: rule
+metadata:
+  name: checksrc
+spec:
+  match: destination.labels["app"] == "webapp"
+  actions:
+  - handler: whitelist
+    instances: [ appversion ]

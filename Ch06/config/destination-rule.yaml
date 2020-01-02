@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: webservice
+spec:
+  host: webservice 
+  subsets:
+  - name: v0
+    labels:
+      version: v7.0
+  - name: v1
+    labels:
+      version: v4
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN

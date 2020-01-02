@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment-7.0
+  labels:
+    app: webservice
+    version: v7.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webservice
+      version: v7.0
+  template:
+    metadata:
+      labels:
+        app: webservice
+        version: v7.0
+    spec:
+      containers:
+      - name: webapp
+        image: web-app:7.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000

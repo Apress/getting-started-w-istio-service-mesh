@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: frontend-app:1.0
+        imagePullPolicy: Never
+        env:
+        - name: LOG_PATH
+          value: /var/log
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        ports:
+        - containerPort: 8080
+      - name: count-agent
+        image: k8s.gcr.io/fluentd-gcp:1.30
+        env:
+        - name: FLUENTD_ARGS
+          value: -c /etc/fluentd-config/fluentd.conf
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: config-volume
+          mountPath: /etc/fluentd-config
+      volumes:
+      - name: varlog
+        emptyDir: {}
+      - name: config-volume
+        configMap:
+          name: fluentd-config

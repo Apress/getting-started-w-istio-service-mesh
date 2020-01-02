@@ -1,0 +1,12 @@
+apiVersion: config.istio.io/v1alpha2
+kind: instance
+metadata:
+  name: requestdouble
+  namespace: istio-system
+spec:
+  compiledTemplate: metric
+  params:
+    value: "2"
+    dimensions:
+      source: source.workload.name | "unknown"
+      destination: destination.workload.name | "unknown"

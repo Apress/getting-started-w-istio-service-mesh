@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: webservice-cannery-vs
+spec:
+  hosts:
+    - webservice
+  http:
+  - match:
+    - headers:
+        host:
+          exact: "user1.com"
+    route:
+    - destination:
+        host: webservice
+        subset: v1
+      weight: 10
+    - destination:
+        host: webservice
+        subset: v0
+      weight: 90
+  - route :
+    - destination:
+        host: webservice
+        subset: v0

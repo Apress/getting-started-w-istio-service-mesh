@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: webservice-httplookup-vs
+spec:
+  hosts:
+    - webservice
+  http:
+  - match:
+    - headers:
+        x-upgrade:
+          exact: "TRUE"
+    - queryParams:
+        ver:
+          exact: v1
+      method:
+        exact: GET
+    route:
+    - destination:
+        host: webservice
+        subset: v1
+  - route :
+    - destination:
+        host: webservice
+        subset: v0

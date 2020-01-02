@@ -1,0 +1,32 @@
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09$ curl --header "Authorization: Bearer $TOKEN" -v http://10.152.183.230/
+*   Trying 10.152.183.230...
+* TCP_NODELAY set
+* Connected to 10.152.183.230 (10.152.183.230) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.230
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJpejZyRi1RQUw4STVlNFRDcVdaSE9SLWpLN1A2UjVEUnR2d2ZsZk5MSnZVIn0.eyJqdGkiOiI4NzYyOGQ4Ni04MTg3LTQ1ZGEtOWRiMi1iZGIyNThkYzk5MGMiLCJleHAiOjE1Njc2MTkyMDcsIm5iZiI6MCwiaWF0IjoxNTY3NjE4OTA3LCJpc3MiOiJodHRwOi8vMTcyLjE4LjAuMTo4MTgxL2F1dGgvcmVhbG1zL2s4cy1kZXYiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNmY3MTNlMDMtOWYyNC00MmMyLTgzMDktZWI2ZGY0NmZiNzU1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2Vic2VydmljZS11c2VyIiwiYXV0aF90aW1lIjoxNTY3NjE4MDQyLCJzZXNzaW9uX3N0YXRlIjoiYzNhOTk1NWMtYTA5YS00NGFlLWE3NzEtMzM3OTE0OTRjZTg1IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsid2Vic2VydmljZS11c2VyIjp7InJvbGVzIjpbInVzZXIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InJhaHVsIiwiZW1haWwiOiJyYWh1bEBrOHMuY29tIn0.aHrwRFT2jG0FFBEhNA-bbaY-NxGIGGDBqn9XxqvHUJLIagnjhkTZGioH44kog_A_LT9IeGj2bMeOBeb0NQn4K1a-c66EpQa4bwt9kcsFfcSKb1Z1dtOhp8tg7jjST93220dq9h9SqHdrMbhJ_eL0rdOKs5VE8DiOOONaP1OkQj4B5Ya58VMuIEAeajgOsSivRRKZlseXp-kr2rPlS2fbPmGFPCfxZl_OEygGaiKWPyQ79DvI_ecEDKxUmg4iLtp86ieVWcu6H_X6ETHmdk9QInWTXI4ORHygd9loY0BoDFtVG9K3STPv9Cn6eDwn6jHCuyyEJ9V0k-2OXqqopF-ggA
+>
+< HTTP/1.1 200 OK
+< content-type: text/html; charset=utf-8
+< content-length: 62
+< server: istio-envoy
+< date: Wed, 04 Sep 2019 17:44:50 GMT
+< x-envoy-upstream-service-time: 3
+< x-envoy-decorator-operation: webservice.default.svc.cluster.local:80/*
+<
+* Connection #0 to host 10.152.183.230 left intact
+[6.0]Welcome user! current time is 2019-09-04 17:44:50.140684 home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09$ curl --header "Authorization: Bearer $TOKENhome@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09$ curl -v http://10.152.183.230/
+*   Trying 10.152.183.230...
+* TCP_NODELAY set
+* Connected to 10.152.183.230 (10.152.183.230) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.230
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+* Recv failure: Connection reset by peer
+* stopped the pause stream!
+* Closing connection 0
+curl: (56) Recv failure: Connection reset by peer

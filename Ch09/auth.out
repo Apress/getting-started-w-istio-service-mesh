@@ -1,0 +1,40 @@
+-- STRICT MODE
+everse-i-search)`c': microk8s.kube^Cl get all
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book$ curl http://10.152.183.230
+[5.0]Welcome user! current time is 2019-09-03 16:48:34.639957 home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book$ cd ch09/code
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ microk8s.kubectl apply -f auth.yaml
+policy.authentication.istio.io/default created
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl http://10.152.183.146
+curl: (52) Empty reply from server
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl -V http://10.152.183.146
+curl 7.58.0 (x86_64-pc-linux-gnu) libcurl/7.58.0 OpenSSL/1.1.1 zlib/1.2.11 libidn2/2.0.4 libpsl/0.19.1 (+libidn2/2.0.4) nghttp2/1.30.0 librtmp/2.3
+Release-Date: 2018-01-24
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtmp rtsp smb smbs smtp smtps telnet tftp
+Features: AsynchDNS IDN IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz TLS-SRP HTTP2 UnixSockets HTTPS-proxy PSL
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl -v http://10.152.183.146
+* Rebuilt URL to: http://10.152.183.146/
+*   Trying 10.152.183.146...
+* TCP_NODELAY set
+* Connected to 10.152.183.146 (10.152.183.146) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.146
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+* Empty reply from server
+* Connection #0 to host 10.152.183.146 left intact
+curl: (52) Empty reply from server
+home@home-Lenovo-ideapad-330-17IKB:~/Projects/istio-book/ch09/code$ curl -v http://10.152.183.230
+* Rebuilt URL to: http://10.152.183.230/
+*   Trying 10.152.183.230...
+* TCP_NODELAY set
+* Connected to 10.152.183.230 (10.152.183.230) port 80 (#0)
+> GET / HTTP/1.1
+> Host: 10.152.183.230
+> User-Agent: curl/7.58.0
+> Accept: */*
+>
+* Recv failure: Connection reset by peer
+* stopped the pause stream!
+* Closing connection 0
+curl: (56) Recv failure: Connection reset by peer
